@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniela Barrera — Creadora UGC & Estratega Digital</title>
+  <meta name="description" content="Contenido auténtico que convierte marcas en experiencias" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAF8F5;
+      --bg2: #F2EDE8;
+      --rose-pale: #EACFC8;
+      --rose: #D4A5A0;
+      --text: #2C2C2C;
+      --muted: #7A6E6E;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--rose);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background-color: var(--bg2);
+      background-image: url(assets/daniela-hero.png);
+      background-size: cover;
+      background-position: center top;
+      display: flex;
+      align-items: center;
+      padding: 140px 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(242,237,232,0.97) 0%,
+        rgba(242,237,232,0.93) 38%,
+        rgba(242,237,232,0.55) 62%,
+        rgba(242,237,232,0.08) 85%,
+        transparent 100%
+      );
+      z-index: 0;
+    }
+
+    .particles-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-left { max-width: 680px; }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text);
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: fadeUp 0.8s ease forwards 0s;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 24px;
+      max-width: 560px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--rose);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 0 40px;
+      height: 52px;
+      border-radius: 100px;
+      text-decoration: none;
+      margin-top: 36px;
+      transition: opacity 0.2s, transform 0.2s;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .btn-hero:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── VALUE PROPS ── */
+    #valor {
+      background: var(--bg2);
+      padding: 100px 60px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 400;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .valor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .valor-card {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .valor-card.visible { opacity: 1; transform: translateY(0); }
+    .valor-card:nth-child(2) { transition-delay: 0.15s; }
+    .valor-card:nth-child(3) { transition-delay: 0.3s; }
+
+    .valor-icon {
+      font-size: 28px;
+      color: var(--rose);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .valor-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .valor-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── SOBRE DANIELA ── */
+    #sobre {
+      background: var(--bg);
+      padding: 100px 60px;
+    }
+
+    .sobre-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sobre-img {
+      width: 500px;
+      min-width: 500px;
+      height: 600px;
+      border-radius: 24px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--rose-pale);
+    }
+
+    .sobre-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .sobre-content { flex: 1; }
+
+    .sobre-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 28px;
+      line-height: 1.1;
+    }
+
+    .sobre-bio {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 56px;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 48px;
+    }
+
+    .stat { text-align: left; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--rose);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── MARCAS MARQUEE ── */
+    #marcas {
+      background: var(--bg);
+      padding: 60px 0;
+    }
+
+    .marcas-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .marquee-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 40s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--rose);
+      padding: 0 28px;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── PRECIOS ── */
+    #precios {
+      background: var(--bg2);
+      padding: 100px 60px;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: -44px;
+      margin-bottom: 64px;
+    }
+
+    .precios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 2px 24px rgba(44,44,44,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .price-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(44,44,44,0.13);
+    }
+
+    .price-card.featured {
+      background: var(--bg);
+      border: 2px solid var(--rose);
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: var(--rose);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .price-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .price-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .price-divider {
+      height: 1px;
+      background: var(--rose-pale);
+      margin-bottom: 24px;
+    }
+
+    .price-cop {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 400;
+      color: var(--text);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .price-usd {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      display: block;
+    }
+
+    .btn-price {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--rose);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-price:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .precio-custom {
+      text-align: center;
+      margin-top: 16px;
+    }
+    .precio-custom p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .btn-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--rose);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--rose-pale);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .btn-custom:hover { border-color: var(--rose); }
+
+    /* ── REELS CARRUSEL ── */
+    #reels {
+      background: var(--bg);
+      padding: 100px 60px;
+    }
+
+    .carousel-outer {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .carousel-track-wrap {
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reel-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .reel-frame-wrap {
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .reel-frame {
+      width: 100%;
+      height: 480px;
+      border-radius: 16px;
+      border: none;
+      background: var(--rose-pale);
+      display: block;
+    }
+
+    .reel-placeholder {
+      width: 100%;
+      height: 480px;
+      border-radius: 16px;
+      background: var(--rose-pale);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .reel-placeholder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--rose);
+    }
+
+    .reel-placeholder a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--rose-pale);
+      padding: 8px 18px;
+      border-radius: 100px;
+      transition: background 0.2s;
+    }
+    .reel-placeholder a:hover { background: var(--rose-pale); }
+
+    .reel-info { text-align: center; }
+
+    .reel-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .reel-desc {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 220px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--rose-pale);
+      color: var(--rose);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      z-index: 10;
+      line-height: 1;
+    }
+    .carousel-btn:hover { background: var(--rose-pale); border-color: var(--rose); }
+    .carousel-btn.prev { left: -28px; }
+    .carousel-btn.next { right: -28px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--rose-pale);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+      border: none;
+    }
+    .dot.active {
+      background: var(--rose);
+      transform: scale(1.25);
+    }
+
+    /* ── CTA FINAL ── */
+    #cta {
+      background: linear-gradient(to bottom, var(--bg), var(--rose-pale));
+      padding: 120px 60px;
+      text-align: center;
+    }
+
+    .cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto 48px;
+      line-height: 1.3;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--text);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 0 48px;
+      height: 56px;
+      width: 320px;
+      justify-content: center;
+      border-radius: 100px;
+      text-decoration: none;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      padding: 48px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--bg);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--bg);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--rose); }
+
+    /* ── FADE-IN SCROLL UTILITY ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+
+      #hero { padding: 120px 24px 80px; background-position: 70% top; }
+      .hero-headline { font-size: 40px; }
+      .hero-sub { font-size: 16px; }
+      .btn-hero { align-self: flex-start; }
+
+      #valor { padding: 72px 24px; }
+      .section-title { font-size: 34px; }
+      .valor-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      #sobre { padding: 72px 24px; }
+      .sobre-inner { flex-direction: column; gap: 40px; }
+      .sobre-img { width: 100%; min-width: unset; height: 400px; }
+      .sobre-title { font-size: 38px; }
+      .stats-row { gap: 28px; flex-wrap: wrap; }
+
+      #marcas { padding: 48px 0; }
+      .marcas-title { font-size: 28px; padding: 0 24px; }
+
+      #precios { padding: 72px 24px; }
+      .precios-grid { grid-template-columns: 1fr; gap: 20px; }
+      .section-sub { margin-bottom: 40px; }
+
+      #reels { padding: 72px 24px; }
+      .carousel-btn.prev { left: -12px; }
+      .carousel-btn.next { right: -12px; }
+
+      #cta { padding: 80px 24px; }
+      .cta-text { font-size: 30px; }
+      .btn-cta { width: 100%; max-width: 320px; }
+
+      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#hero" class="nav-brand">Daniela Barrera</a>
+    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-headline">Contenido auténtico que convierte marcas en experiencias</h1>
+        <p class="hero-sub">Soy Daniela Barrera — Creadora UGC y Estratega Digital.<br>Cada video que produzco lleva una estrategia diseñada para tu objetivo.</p>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener" class="btn-hero">Cotiza por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPUESTA DE VALOR -->
+  <section id="valor">
+    <h2 class="section-title fade-in">¿Qué recibe tu marca?</h2>
+    <div class="valor-grid">
+      <div class="valor-card">
+        <span class="valor-icon">✦</span>
+        <h3>Estrategia en cada video</h3>
+        <p>No entrego un video, entrego un objetivo cumplido con narrativa auténtica construida para tu marca.</p>
+      </div>
+      <div class="valor-card">
+        <span class="valor-icon">✦</span>
+        <h3>Cercanía que convierte</h3>
+        <p>Mi audiencia me conoce — esa confianza se transfiere directamente a tu marca.</p>
+      </div>
+      <div class="valor-card">
+        <span class="valor-icon">✦</span>
+        <h3>IA integrada al proceso</h3>
+        <p>Edición y estrategia con inteligencia artificial para producción más eficiente y resultados medibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE DANIELA -->
+  <section id="sobre">
+    <div class="sobre-inner fade-in">
+      <div class="sobre-img"><img src="assets/daniela-sobre.jpg" alt="Daniela Barrera" /></div>
+      <div class="sobre-content">
+        <h2 class="sobre-title">Soy Daniela Barrera</h2>
+        <p class="sobre-bio">Creadora UGC, estratega digital y CEO de @danielabarreracouture.<br><br>
+        Trabajo con marcas de belleza, lifestyle, viajes y gastronomía para transformar visualizaciones en acciones reales. Cada marca que trabaja conmigo llega con un objetivo claro — más visitas, más ventas, más comunidad — y yo construyo la narrativa auténtica para lograrlo.<br><br>
+        No entrego solo un video — entrego una estrategia dentro del video. Cada producción tiene un objetivo definido. Integro edición con IA y estrategia de IA en el proceso. Las marcas deben llegar con su cliente ideal definido y su objetivo claro: más seguidores, visitas al lugar, prueba de producto, nueva experiencia.</p>
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-num" data-target="18000" data-prefix="" data-suffix=""></span>
+            <span class="stat-label">Seguidores</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="11" data-prefix="+" data-suffix=""></span>
+            <span class="stat-label">Marcas trabajadas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="3" data-prefix="" data-suffix=""></span>
+            <span class="stat-label">Países</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section id="marcas">
+    <h2 class="marcas-title fade-in">Marcas que han confiado en mi contenido</h2>
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Temu</span><span>·</span>
+        <span>Disney Land París</span><span>·</span>
+        <span>AVA Resort Cancún</span><span>·</span>
+        <span>Papas: Detodito</span><span>·</span>
+        <span>BrunchHouse</span><span>·</span>
+        <span>Primos Cybermarket</span><span>·</span>
+        <span>Samsonite Colombia</span><span>·</span>
+        <span>Zorro Azul</span><span>·</span>
+        <span>La Fugitiva</span><span>·</span>
+        <span>Hilton Garden Inn</span><span>·</span>
+        <span>Chanel</span><span>·</span>
+        <span>Dior</span><span>·</span>
+        <!-- duplicate for seamless loop -->
+        <span>Temu</span><span>·</span>
+        <span>Disney Land París</span><span>·</span>
+        <span>AVA Resort Cancún</span><span>·</span>
+        <span>Papas: Detodito</span><span>·</span>
+        <span>BrunchHouse</span><span>·</span>
+        <span>Primos Cybermarket</span><span>·</span>
+        <span>Samsonite Colombia</span><span>·</span>
+        <span>Zorro Azul</span><span>·</span>
+        <span>La Fugitiva</span><span>·</span>
+        <span>Hilton Garden Inn</span><span>·</span>
+        <span>Chanel</span><span>·</span>
+        <span>Dior</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REELS CARRUSEL -->
+  <section id="reels">
+    <h2 class="section-title fade-in">El contenido en acción</h2>
+    <div class="carousel-outer">
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- Slide 1: Temu -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/reel/DTIpZE4kWCh/embed" title="Temu reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-0">
+                <span class="reel-placeholder-name">Temu</span>
+                <a href="https://www.instagram.com/reel/DTIpZE4kWCh/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Temu</span>
+              <span class="reel-desc">Campaña de producto con múltiples artículos</span>
+            </div>
+          </div>
+
+          <!-- Slide 2: Disney Land París -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/reel/DDXftfPP3fV/embed" title="Disney Land París reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-1">
+                <span class="reel-placeholder-name">Disney Land París</span>
+                <a href="https://www.instagram.com/reel/DDXftfPP3fV/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Disney Land París</span>
+              <span class="reel-desc">Contenido de viaje y experiencias internacionales</span>
+            </div>
+          </div>
+
+          <!-- Slide 3: AVA Resort Cancún -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/p/DJ2J5_4vNor/embed" title="AVA Resort Cancún" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-2">
+                <span class="reel-placeholder-name">AVA Resort Cancún</span>
+                <a href="https://www.instagram.com/p/DJ2J5_4vNor/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">AVA Resort Cancún</span>
+              <span class="reel-desc">Producción de lujo en destino internacional</span>
+            </div>
+          </div>
+
+          <!-- Slide 4: Primos Cybermarket -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-3">
+                <span class="reel-placeholder-name">Primos Cybermarket</span>
+                <a href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Primos Cybermarket</span>
+              <span class="reel-desc">Campaña de producto</span>
+            </div>
+          </div>
+
+          <!-- Slide 5: Chanel & Dior -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/reel/DU0434MFdsy/embed" title="Chanel y Dior" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-4">
+                <span class="reel-placeholder-name">Chanel &amp; Dior</span>
+                <a href="https://www.instagram.com/reel/DU0434MFdsy/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Chanel &amp; Dior</span>
+              <span class="reel-desc">Contenido de marcas de lujo</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">&#8594;</button>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios">
+    <h2 class="section-title fade-in">Invierte en contenido que tiene estrategia</h2>
+    <p class="section-sub fade-in">Precios de referencia. Cada proyecto se adapta a tu objetivo — cotiza por WhatsApp.</p>
+    <div class="precios-grid">
+
+      <!-- Card 1 -->
+      <div class="price-card fade-in">
+        <h3>1 Video UGC</h3>
+        <p class="price-desc">Ideal para probar el formato o una campaña puntual.</p>
+        <div class="price-divider"></div>
+        <span class="price-cop">$350.000 COP</span>
+        <span class="price-usd">~$83 USD</span>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%201%20video%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+      </div>
+
+      <!-- Card 2 — Destacado -->
+      <div class="price-card featured fade-in">
+        <span class="price-badge">Más elegido</span>
+        <h3>3 Videos UGC</h3>
+        <p class="price-desc">Para campañas con mayor alcance y consistencia de mensaje.</p>
+        <div class="price-divider"></div>
+        <span class="price-cop">$900.000 COP</span>
+        <span class="price-usd">~$214 USD</span>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%203%20videos%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="price-card fade-in">
+        <h3>6 Videos UGC</h3>
+        <p class="price-desc">Estrategia de contenido sostenida para marcas que buscan presencia real.</p>
+        <div class="price-divider"></div>
+        <span class="price-cop">$1.450.000 COP</span>
+        <span class="price-usd">~$345 USD</span>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%206%20videos%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+      </div>
+
+    </div>
+    <div class="precio-custom fade-in">
+      <p>¿Buscas una colaboración o contrato mensual? Hablemos.</p>
+      <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20hablar%20sobre%20una%20colaboraci%C3%B3n%20o%20contrato%20mensual" target="_blank" rel="noopener" class="btn-custom">Solicitar propuesta personalizada →</a>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta">
+    <p class="cta-text fade-in">¿Tienes claro quién es tu cliente ideal y qué quieres que haga? Eso es todo lo que necesito para empezar.</p>
+    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener" class="btn-cta">Escribirle a Daniela por WhatsApp</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <span class="footer-brand-name">Daniela Barrera</span>
+      <span class="footer-tagline">Contenido auténtico que vende.</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/danimuart/" target="_blank" rel="noopener">@danimuart</a>
+      <a href="https://www.instagram.com/danielabarreracouture/" target="_blank" rel="noopener">@danielabarreracouture</a>
+      <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ── PARTICLES ── */
+    (function () {
+      const canvas = document.getElementById('particlesCanvas');
+      const ctx = canvas.getContext('2d');
+      let W, H, particles;
+
+      function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+
+      function initParticles() {
+        particles = Array.from({ length: 14 }, () => ({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: 4 + Math.random() * 14,
+          dx: (Math.random() - 0.5) * 0.35,
+          dy: -0.15 - Math.random() * 0.25,
+          alpha: 0.12 + Math.random() * 0.2
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(234,207,200,${p.alpha})`;
+          ctx.fill();
+          p.x += p.dx;
+          p.y += p.dy;
+          if (p.y + p.r < 0) { p.y = H + p.r; p.x = Math.random() * W; }
+          if (p.x - p.r > W) p.x = -p.r;
+          if (p.x + p.r < 0) p.x = W + p.r;
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      initParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); initParticles(); });
+    })();
+
+    /* ── INTERSECTION OBSERVER ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // trigger counter if needed
+          const nums = e.target.querySelectorAll ? e.target.querySelectorAll('[data-target]') : [];
+          nums.forEach(animateCounter);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in, .valor-card').forEach(el => observer.observe(el));
+
+    // Also observe sobre section for counters
+    const sobreSection = document.getElementById('sobre');
+    if (sobreSection) observer.observe(sobreSection);
+
+    /* ── COUNTERS ── */
+    function animateCounter(el) {
+      if (el.dataset.animated) return;
+      el.dataset.animated = 'true';
+      const target = +el.dataset.target;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur = 1600;
+      const start = performance.now();
+
+      function format(n) {
+        if (n >= 1000) return prefix + n.toLocaleString('es-CO') + suffix;
+        return prefix + n + suffix;
+      }
+
+      function step(now) {
+        const prog = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - prog, 3);
+        el.textContent = format(Math.round(ease * target));
+        if (prog < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Counter observer
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-target]').forEach(animateCounter);
+        }
+      });
+    }, { threshold: 0.3 });
+    counterObserver.observe(document.getElementById('sobre'));
+
+    /* ── CAROUSEL ── */
+    const track = document.getElementById('carouselTrack');
+    const slides = track.querySelectorAll('.reel-slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    let current = 0;
+    let touchStartX = 0;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `Slide ${i + 1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(d);
+    });
+
+    function goTo(n) {
+      current = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+    // Touch / swipe
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    });
+
+    /* ── IFRAME ERROR FALLBACK ── */
+    document.querySelectorAll('.reel-frame').forEach((iframe, i) => {
+      iframe.addEventListener('error', () => {
+        iframe.style.display = 'none';
+        const ph = document.getElementById('ph-' + i);
+        if (ph) ph.style.display = 'flex';
+      });
+      // Also show placeholder if iframe src fails to load in 5s
+      const timer = setTimeout(() => {
+        try {
+          // Check if iframe loaded — if cross-origin it will throw
+          const _ = iframe.contentWindow.location.href;
+        } catch (_) {
+          // cross-origin loaded fine, do nothing
+        }
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
